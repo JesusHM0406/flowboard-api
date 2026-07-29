@@ -1,0 +1,22 @@
+services:
+  backend_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: api_dev
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+
+        - action: sync
+          path: ./test
+          target: /app/test
+
+        - action: rebuild
+          path: ./package.json
+
