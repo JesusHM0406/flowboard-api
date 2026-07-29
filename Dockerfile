@@ -20,9 +20,9 @@ RUN npm run build
 FROM node:24.18.0-alpine AS prod
 WORKDIR /app
 ENV NODE_ENV=production
-USER node
-COPY --chown=node --from=build /app/node_modules ./node_modules
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 COPY --chown=node --from=build /app/dist ./dist
-COPY --chown=node --from=build /app/package.json ./package.json
+USER node
 EXPOSE 3000
 CMD ["node", "dist/main.js"]
