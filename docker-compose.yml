@@ -7,6 +7,8 @@ services:
     container_name: api_dev
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     develop:
       watch:
         - action: sync
