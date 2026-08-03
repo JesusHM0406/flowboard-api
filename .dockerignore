@@ -20,6 +20,4 @@ README.md
 coverage/
 *.md
 
-Dockerfile*
-docker-compose*
-.dockerignore
+# Keep Dockerfile/docker-compose/.dockerignore in build context (required for docker-compose build)
