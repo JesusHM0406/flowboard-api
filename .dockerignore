@@ -1,0 +1,23 @@
+.git
+.gitignore
+.gitattributes
+.github
+
+.env
+.env.*
+!.env.example
+
+node_modules/
+npm-debug.log*
+
+dist/
+*.exe
+*.dll
+*.so
+
+.vscode/
+README.md
+coverage/
+*.md
+
+# Keep Dockerfile/docker-compose/.dockerignore in build context (required for docker-compose build)
