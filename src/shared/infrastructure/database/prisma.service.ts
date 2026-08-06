@@ -4,7 +4,7 @@ import { PrismaPg } from '@prisma/adapter-pg';
 
 @Injectable()
 export class PrismaService implements OnModuleDestroy {
-  private readonly prisma: PrismaClient;
+  public readonly client: PrismaClient;
 
   constructor() {
     const connectionString = process.env.DATABASE_URL;
@@ -16,10 +16,10 @@ export class PrismaService implements OnModuleDestroy {
     }
 
     const adapter = new PrismaPg({ connectionString });
-    this.prisma = new PrismaClient({ adapter });
+    this.client = new PrismaClient({ adapter });
   }
 
   async onModuleDestroy() {
-    await this.prisma.$disconnect();
+    await this.client.$disconnect();
   }
 }
