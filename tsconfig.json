@@ -20,6 +20,9 @@
     "strictBindCallApply": true,
     "noFallthroughCasesInSwitch": true,
     "ignoreDeprecations": "6.0",
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "paths": {
+      "@generated/*": ["./src/generated/*"]
+    },
   }
 }
