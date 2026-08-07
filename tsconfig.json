@@ -20,9 +20,10 @@
     "strictBindCallApply": true,
     "noFallthroughCasesInSwitch": true,
     "ignoreDeprecations": "6.0",
-    "types": ["jest", "node"],
+    "types": ["vitest/globals", "node"],
     "paths": {
-      "@generated/*": ["./src/generated/*"]
+      "@generated/*": ["./src/generated/*"],
+      "@src/*": ["./src/*"]
     },
   }
 }
