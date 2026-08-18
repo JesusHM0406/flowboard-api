@@ -3,10 +3,15 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    globals: true,
-    root: './',
-    environment: 'node',
-    include: ['src/**/*.spec.ts'],
+    projects: [
+      {
+        extends: './vitest.shared.ts',
+        test: {
+          name: 'unit',
+          include: ['test/unit/**/*.spec.ts'],
+        },
+      },
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
